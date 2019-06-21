@@ -1,0 +1,11 @@
+C:\Users\Stephen\Desktop\MovieManager\MovieManagerContext\MovieManagerContext\bin\Debug\netcoreapp2.1\MovieManagerContext.deps.json
+C:\Users\Stephen\Desktop\MovieManager\MovieManagerContext\MovieManagerContext\bin\Debug\netcoreapp2.1\MovieManagerContext.dll
+C:\Users\Stephen\Desktop\MovieManager\MovieManagerContext\MovieManagerContext\bin\Debug\netcoreapp2.1\MovieEntity.dll
+C:\Users\Stephen\Desktop\MovieManager\MovieManagerContext\MovieManagerContext\bin\Debug\netcoreapp2.1\MovieEntity.pdb
+C:\Users\Stephen\Desktop\MovieManager\MovieManagerContext\MovieManagerContext\obj\Debug\netcoreapp2.1\MovieManagerContext.csproj.CoreCompileInputs.cache
+C:\Users\Stephen\Desktop\MovieManager\MovieManagerContext\MovieManagerContext\obj\Debug\netcoreapp2.1\MovieManagerContext.AssemblyInfoInputs.cache
+C:\Users\Stephen\Desktop\MovieManager\MovieManagerContext\MovieManagerContext\obj\Debug\netcoreapp2.1\MovieManagerContext.AssemblyInfo.cs
+C:\Users\Stephen\Desktop\MovieManager\MovieManagerContext\MovieManagerContext\obj\Debug\netcoreapp2.1\MovieManagerContext.csproj.CopyComplete
+C:\Users\Stephen\Desktop\MovieManager\MovieManagerContext\MovieManagerContext\bin\Debug\netcoreapp2.1\MovieManagerContext.pdb
+C:\Users\Stephen\Desktop\MovieManager\MovieManagerContext\MovieManagerContext\obj\Debug\netcoreapp2.1\MovieManagerContext.dll
+C:\Users\Stephen\Desktop\MovieManager\MovieManagerContext\MovieManagerContext\obj\Debug\netcoreapp2.1\MovieManagerContext.pdb

@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using MovieManager.Entities;
-using MovieManager.DataAccess.Interface;
+using MovieEntity;
+using MovieInterface;
 using Newtonsoft.Json;
 
 namespace MovieManager.Controllers

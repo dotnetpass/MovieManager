@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MovieManager.DataAccess.Interface;
-using MovieManager.Entities;
+using MovieInterface;
+using MovieEntity;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;

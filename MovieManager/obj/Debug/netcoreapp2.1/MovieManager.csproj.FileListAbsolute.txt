@@ -17,7 +17,6 @@ C:\Users\Stephen\Desktop\MovieManager\MovieManager\bin\Debug\netcoreapp2.1\Movie
 C:\Users\Stephen\Desktop\MovieManager\MovieManager\bin\Debug\netcoreapp2.1\MovieManager.runtimeconfig.dev.json
 C:\Users\Stephen\Desktop\MovieManager\MovieManager\bin\Debug\netcoreapp2.1\MovieManager.dll
 C:\Users\Stephen\Desktop\MovieManager\MovieManager\bin\Debug\netcoreapp2.1\MovieManager.pdb
-C:\Users\Stephen\Desktop\MovieManager\MovieManager\obj\Debug\netcoreapp2.1\MovieManager.csprojAssemblyReference.cache
 C:\Users\Stephen\Desktop\MovieManager\MovieManager\obj\Debug\netcoreapp2.1\MovieManager.csproj.CoreCompileInputs.cache
 C:\Users\Stephen\Desktop\MovieManager\MovieManager\obj\Debug\netcoreapp2.1\MovieManager.RazorAssemblyInfo.cache
 C:\Users\Stephen\Desktop\MovieManager\MovieManager\obj\Debug\netcoreapp2.1\MovieManager.RazorAssemblyInfo.cs
@@ -26,3 +25,13 @@ C:\Users\Stephen\Desktop\MovieManager\MovieManager\obj\Debug\netcoreapp2.1\Movie
 C:\Users\Stephen\Desktop\MovieManager\MovieManager\obj\Debug\netcoreapp2.1\MovieManager.RazorTargetAssemblyInfo.cache
 C:\Users\Stephen\Desktop\MovieManager\MovieManager\obj\Debug\netcoreapp2.1\MovieManager.dll
 C:\Users\Stephen\Desktop\MovieManager\MovieManager\obj\Debug\netcoreapp2.1\MovieManager.pdb
+C:\Users\Stephen\Desktop\MovieManager\MovieManager\obj\Debug\netcoreapp2.1\MovieManager.csprojAssemblyReference.cache
+C:\Users\Stephen\Desktop\MovieManager\MovieManager\bin\Debug\netcoreapp2.1\MovieEntity.dll
+C:\Users\Stephen\Desktop\MovieManager\MovieManager\obj\Debug\netcoreapp2.1\MovieManager.csproj.CopyComplete
+C:\Users\Stephen\Desktop\MovieManager\MovieManager\bin\Debug\netcoreapp2.1\MovieInterface.dll
+C:\Users\Stephen\Desktop\MovieManager\MovieManager\bin\Debug\netcoreapp2.1\MovieEntity.pdb
+C:\Users\Stephen\Desktop\MovieManager\MovieManager\bin\Debug\netcoreapp2.1\MovieInterface.pdb
+C:\Users\Stephen\Desktop\MovieManager\MovieManager\bin\Debug\netcoreapp2.1\MovieManagerContext.dll
+C:\Users\Stephen\Desktop\MovieManager\MovieManager\bin\Debug\netcoreapp2.1\MovieManagerContext.pdb
+C:\Users\Stephen\Desktop\MovieManager\MovieManager\bin\Debug\netcoreapp2.1\MovieManagerImplement.dll
+C:\Users\Stephen\Desktop\MovieManager\MovieManager\bin\Debug\netcoreapp2.1\MovieManagerImplement.pdb

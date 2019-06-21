@@ -5,11 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
-using MovieManager.DataAccess.Base;
-using MovieManager.DataAccess.Implement;
-using MovieManager.DataAccess.Interface;
+using MovieManagerContext;
+using MovieInterface;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
+using MovieManagerImplement;
 
 namespace MovieManager
 {

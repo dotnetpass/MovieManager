@@ -1,8 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <ApplicationIcon />
+    <OutputType>Exe</OutputType>
+    <StartupObject />
   </PropertyGroup>
 
   <ItemGroup>
@@ -12,6 +15,21 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.1.0" />
     <PackageReference Include="System.Text.Encoding.CodePages" Version="4.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="MovieEntity">
+      <HintPath>..\MovieEntity\MovieEntity\bin\Debug\netcoreapp2.1\MovieEntity.dll</HintPath>
+    </Reference>
+    <Reference Include="MovieInterface">
+      <HintPath>..\MovieInterface\MovieInterface\bin\Debug\netcoreapp2.1\MovieInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="MovieManagerContext">
+      <HintPath>..\MovieManagerContext\MovieManagerContext\bin\Debug\netcoreapp2.1\MovieManagerContext.dll</HintPath>
+    </Reference>
+    <Reference Include="MovieManagerImplement">
+      <HintPath>..\MovieManagerImplement\MovieManagerImplement\bin\Debug\netcoreapp2.1\MovieManagerImplement.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

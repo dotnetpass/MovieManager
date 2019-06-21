@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MovieManager.DataAccess.Interface;
-using MovieManager.Entities;
+using MovieInterface;
+using MovieEntity;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using System;
@@ -19,12 +19,14 @@ namespace MovieManager.Controllers
             this.dao = dao;
         }
 
+        // 创建用户
         [HttpPost("create")]
-        public async Task<ActionResult<long>> CreateUser(User user)
+        public async Task<ActionResult<object>> CreateUser(User user)
         {
             return dao.CreateUser(user);
         }
 
+        //
         [HttpDelete("delete/{id}")]
         public async Task<ActionResult<bool>> DeleteUser(long id)
         {
