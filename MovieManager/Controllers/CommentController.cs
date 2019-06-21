@@ -41,9 +41,20 @@ namespace MovieManager.Controllers
         }
 
         [HttpDelete("delete/{id}")]
-        public async Task<ActionResult<bool>> DeleteCommentById(int id)
+        public async Task<object> DeleteCommentById(int id)
         {
-            return dao.DeleteCommentById(id);
+            bool user_state = false;
+            bool delete_state = false;
+            if (CheckUserState() > 0)
+            {
+                user_state = true;
+                delete_state =  dao.DeleteCommentById(id);
+            }
+            Dictionary<string, object> result = new Dictionary<string, object>();
+            result.Add("user_state", user_state);
+            result.Add("delete_state", delete_state);
+            return JsonConvert.SerializeObject(result);
+            
         }
 
         [HttpGet("get/user")]
