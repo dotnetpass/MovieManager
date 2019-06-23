@@ -66,7 +66,7 @@ namespace MovieManager.Controllers
         }
 
         [HttpPost("login")]
-        public object Login([FromBody]JObject user_information)
+        public async Task<ActionResult<object>> Login([FromBody]JObject user_information)
         {
             Dictionary<string, object> result = new Dictionary<string, object>();
             string user_name = user_information["nick"].ToString();
