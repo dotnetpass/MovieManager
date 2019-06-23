@@ -7,9 +7,9 @@ namespace MovieInterface
     {
         object GetAllForums(int page, int size);
 
-        object GetForumById(int id);
+        object GetForumById(int id, long user_id);
 
-        IEnumerable<Forum> GetForumsByName(string name);
+        object GetForumsByName(string name);
 
         IEnumerable<Forum> GetForumsByUserId(long id);
 

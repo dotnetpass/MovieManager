@@ -3,10 +3,12 @@ using MovieEntity;
 
 namespace MovieManagerContext
 {
-    public class DiscussionContext : DbContext
+    public class IndexContext : DbContext
     {
-        public DiscussionContext(DbContextOptions<DiscussionContext> options): base(options) { }
+        public IndexContext(DbContextOptions<IndexContext> options) : base(options) { }
 
+        public DbSet<Movie> movies { get; set; }
+        public DbSet<Comment> comments { get; set; }
         public DbSet<Discussion> discussions { get; set; }
         public DbSet<User> users { get; set; }
         public DbSet<Forum> forums { get; set; }

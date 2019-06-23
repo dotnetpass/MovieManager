@@ -50,27 +50,51 @@ namespace MovieManagerImplement
             return JsonConvert.SerializeObject(result);
         }
 
-        public IEnumerable<Forum> GetForumsByName(string name)
+        public object GetForumsByName(string name)
         {
-            return context.forums.Where(f => f.name.Contains(name));
+            var result_forums = from forums in context.forums
+                                join users in context.users on forums.publisher_id equals users.id
+                                where forums.name.Contains(name)
+                                select new
+                                {
+                                    id = forums.id,
+                                    name = forums.name,
+                                    description = forums.description,
+                                    user_id = users.id,
+                                    nick = users.nick
+                                };
+            return JsonConvert.SerializeObject(result_forums);
         }
 
-        public object GetForumById(int id)
+        public object GetForumById(int id, long user_id)
         {
             Forum forum =  context.forums.SingleOrDefault(f => f.id == id);
-            User user = context.users.SingleOrDefault(u => u.id == forum.publisher_id);
             Dictionary<string, object> result = new Dictionary<string, object>();
+            User user = context.users.SingleOrDefault(u => u.id == user_id);
+            result.Add("nick", user.nick);
             result.Add("name", forum.name);
             result.Add("description", forum.description);
-            if (user != null)
+            var userForum = context.userForums.SingleOrDefault(u => u.forum_id == id && u.user_id == user_id);
+            if (userForum != null)
             {
-                result.Add("nick", user.nick);
+                
+                result.Add("like", true);
+                
             }
             else
             {
-                result.Add("nick", null);
+                result.Add("like", false);
             }
-            
+            //if (user != null)
+            //{
+            //    result.Add("nick", user.nick);
+
+            //}
+            //else
+            //{
+            //    result.Add("nick", null);
+            //    result.Add("like", false);
+            //}
             return JsonConvert.SerializeObject(result);
 
         }

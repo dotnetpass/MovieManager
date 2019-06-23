@@ -30,7 +30,7 @@ namespace MovieManager.Controllers
             if (id > 0)
             {
                 var options = new CookieOptions();
-                options.Expires = DateTime.Now.AddSeconds(300);
+                options.Expires = DateTime.Now.AddSeconds(24 * 60 * 60);
                 Response.Cookies.Append("user", id.ToString(), options);
                 HttpContext.Session.SetString(id.ToString(), id.ToString());
                 result.Add("id", id);
@@ -46,7 +46,7 @@ namespace MovieManager.Controllers
             return JsonConvert.SerializeObject(result);
         }
 
-        //
+
         [HttpDelete("delete/{id}")]
         public async Task<ActionResult<bool>> DeleteUser(long id)
         {
@@ -80,7 +80,7 @@ namespace MovieManager.Controllers
             else
             {
                 var options = new CookieOptions();
-                options.Expires = DateTime.Now.AddSeconds(300);
+                options.Expires = DateTime.Now.AddSeconds(24 * 60 * 60);
                 Response.Cookies.Append("user", is_login.ToString(), options);
                 HttpContext.Session.SetString(is_login.ToString(), is_login.ToString());
                 User user = dao.GetUserById(is_login);

@@ -28,15 +28,24 @@ namespace MovieManager.Controllers
 
         //根据forum的名字来搜索forum
         [HttpGet("get/name/{name}")]
-        public async Task<ActionResult<IEnumerable<Forum>>> GetForumsByName(string name)
+        public async Task<ActionResult<object>> GetForumsByName(string name)
         {
-            return new ActionResult<IEnumerable<Forum>>(dao.GetForumsByName(name));
+            return dao.GetForumsByName(name);
         }
 
         [HttpGet("get/id/{id}")]
         public async Task<ActionResult<object>> GetForumById(int id)
         {
-            return dao.GetForumById(id);
+            if (Check.CheckUserState(Request, HttpContext) > 0)
+            {
+                return dao.GetForumById(id, long.Parse(Request.Cookies["user"]));
+            }
+            else
+            {
+                Response.StatusCode = 403;
+                return -1;
+            }
+            
         }
 
         //登陆用户创建新的forum
@@ -50,6 +59,7 @@ namespace MovieManager.Controllers
             }
             else
             {
+                Response.StatusCode = 403;
                 return -1;
             }
         }

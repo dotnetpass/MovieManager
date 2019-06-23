@@ -10,5 +10,6 @@ namespace MovieManagerContext
 
         public DbSet<Movie> movies { get; set; }
         public DbSet<MovieDetail> details { get; set; }
+        public DbSet<UserMovie> userMovies { get; set; }
     }
 }

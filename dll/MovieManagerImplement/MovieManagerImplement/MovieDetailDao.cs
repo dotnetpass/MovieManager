@@ -15,8 +15,14 @@ namespace MovieManagerImplement
             this.context = context;
         }
 
-        public object GetMovieDetailsById(int id)
+        public object GetMovieDetailsById(int id, long user_id)
         {
+            var new_user_movie = context.userMovies.SingleOrDefault(u => u.user_id == user_id && u.movie_id == id);
+            var like = false;
+            if (new_user_movie != null)
+            {
+                like = true;
+            }
             var result = from details in context.details
                          join movies in context.movies on details.id equals movies.id
                          where movies.id == id
@@ -38,7 +44,8 @@ namespace MovieManagerImplement
                              version = details.version,
                              description = details.description,
                              eng_name = details.eng_name,
-                             average_score = 0
+                             average_score = 0,
+                             like = like
                          };
             return result.First();
         }

@@ -37,14 +37,87 @@ namespace MovieManagerImplement
 
         }
 
-        public IEnumerable<Comment> GetCommentsByUserId(long id)
+        public object GetCommentsByUserId(long id, int page, int size)
         {
-            return context.comments.OrderByDescending(c => c.time).Where(c => c.user_id == id);
+            Dictionary<string, object> result = new Dictionary<string, object>();
+            var comments = context.comments.OrderByDescending(c => c.time).Where(c => c.user_id == id);
+            IQueryable<Comment> data = null;
+            int count = comments.Count();
+            if (page == 1)
+            {
+                data = comments.Take(size);
+            }
+            else if (page * size <= count)
+            {
+                data = comments.Skip((page - 1) * size).Take(size);
+            }
+            else
+            {
+                data = comments.Skip((page - 1) * size);
+            }
+            int total_page = 0;
+            if (count % size == 0)
+            {
+                total_page = count / size;
+            }
+            else
+            {
+                total_page = count / size + 1;
+            }
+            result.Add("page", page);
+            result.Add("totalPage", total_page);
+            result.Add("count", count);
+            result.Add("pageSize", size);
+            result.Add("data", data);
+            return result;
         }
 
-        public IEnumerable<Comment> GetCommentsByMovieId(int id)
+        public object GetCommentsByMovieId(int id, int page, int size)
         {
-            return context.comments.OrderByDescending(c => c.time).Where(c => c.movie_id == id);
+            Dictionary<string, object> result = new Dictionary<string, object>();
+            var comments = context.comments.OrderByDescending(c => c.time).Where(c => c.movie_id == id);
+            var new_data = from _comments in comments
+                           join _users in context.users on _comments.user_id equals _users.id
+                           select new
+                           {
+                               id = _comments.id,
+                               user_id = _comments.user_id,
+                               movie_id = _comments.movie_id,
+                               content = _comments.content,
+                               time = _comments.time,
+                               score = _comments.score,
+                               nick = _users.nick,
+                               avatar_url = _users.avatar_url
+                           };
+            IQueryable<object> data = null;
+            int count = comments.Count();
+            if (page == 1)
+            {
+                data = new_data.Take(size);
+            }
+            else if (page * size <= count)
+            {
+                data = new_data.Skip((page - 1) * size).Take(size);
+            }
+            else
+            {
+                data = new_data.Skip((page - 1) * size);
+            }
+            int total_page = 0;
+            if (count % size == 0)
+            {
+                total_page = count / size;
+            }
+            else
+            {
+                total_page = count / size + 1;
+            }
+            result.Add("page", page);
+            result.Add("totalPage", total_page);
+            result.Add("count", count);
+            result.Add("pageSize", size);
+            result.Add("data", data);
+            return result;
         }
 
         public bool UpdateCommentById(int id, Comment comment)
@@ -62,21 +135,21 @@ namespace MovieManagerImplement
             return false;
         }
 
-        public double GetMeanScoreByMovieId(int id)
-        {
-            int[] scores = context.comments.Where(c => c.movie_id == id).Select(c => c.score).ToArray();
-            double[] temp_scores = new double[scores.Length];
-            for (int i = 0; i < scores.Length; i++)
-            {
-                temp_scores[i] = scores[i];
-            }
-            return RefCppDll.CalculateMeanScore(ref temp_scores[0], temp_scores.Length);
-        }
+        //public double GetMeanScoreByMovieId(int id)
+        //{
+        //    int[] scores = context.comments.Where(c => c.movie_id == id).Select(c => c.score).ToArray();
+        //    double[] temp_scores = new double[scores.Length];
+        //    for (int i = 0; i < scores.Length; i++)
+        //    {
+        //        temp_scores[i] = scores[i];
+        //    }
+        //    return RefCppDll.CalculateMeanScore(ref temp_scores[0], temp_scores.Length);
+        //}
     }
 
-    public class RefCppDll
-    {
-        [DllImport("MovieScoreDLL.dll", EntryPoint = "CalculateMeanScore", CallingConvention = CallingConvention.Cdecl)]
-        public extern static double CalculateMeanScore(ref double arr, int len);
-    }
+    //public class RefCppDll
+    //{
+    //    [DllImport("MovieScoreDLL.dll", EntryPoint = "CalculateMeanScore", CallingConvention = CallingConvention.Cdecl)]
+    //    public extern static double CalculateMeanScore(ref double arr, int len);
+    //}
 }

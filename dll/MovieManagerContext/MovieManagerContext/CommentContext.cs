@@ -8,5 +8,6 @@ namespace MovieManagerContext
         public CommentContext(DbContextOptions<CommentContext> options) : base(options) { }
 
         public DbSet<Comment> comments { get; set; }
+        public DbSet<User> users { get; set; }
     }
 }

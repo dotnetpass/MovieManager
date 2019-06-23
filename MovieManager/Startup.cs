@@ -29,7 +29,7 @@ namespace MovieManager
             services.AddDistributedMemoryCache();
             services.AddSession(options =>
             {
-                options.IdleTimeout = TimeSpan.FromSeconds(300);
+                options.IdleTimeout = TimeSpan.FromSeconds(24 * 60 * 60);
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
             });
@@ -49,6 +49,10 @@ namespace MovieManager
                 opt.UseMySql(Configuration.GetConnectionString("MovieConnection")));
             services.AddDbContext<MovieDetailContext>(opt =>
                 opt.UseMySql(Configuration.GetConnectionString("MovieConnection")));
+            services.AddDbContext<DiscussionContext>(opt =>
+                opt.UseMySql(Configuration.GetConnectionString("MovieConnection")));
+            services.AddDbContext<IndexContext>(opt =>
+                opt.UseMySql(Configuration.GetConnectionString("MovieConnection")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1).AddJsonOptions(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
             services.AddScoped<IUserDao, UserDao>();
@@ -58,6 +62,8 @@ namespace MovieManager
             services.AddScoped<IForumDao, ForumDao>();
             services.AddScoped<IUserForumDao, UserForumDao>();
             services.AddScoped<IMovieDetailDao, MovieDetailDao>();
+            services.AddScoped<IDiscussionDao, DiscussionDao>();
+            services.AddScoped<IIndexDao, IndexDao>();
             services.AddSingleton(HtmlEncoder.Create(UnicodeRanges.All));
 
         }

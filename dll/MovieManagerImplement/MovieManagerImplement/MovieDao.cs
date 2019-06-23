@@ -87,6 +87,7 @@ namespace MovieManagerImplement
             result.Add("count", count);
             result.Add("pageSize", size);
             result.Add("data", data);
+
             return JsonConvert.SerializeObject(result);
         }
     }
