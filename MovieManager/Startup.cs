@@ -29,7 +29,7 @@ namespace MovieManager
             services.AddDistributedMemoryCache();
             services.AddSession(options =>
             {
-                options.IdleTimeout = TimeSpan.FromSeconds(300);
+                options.IdleTimeout = TimeSpan.FromSeconds(24 * 60 * 60);
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
             });
