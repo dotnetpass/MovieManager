@@ -16,14 +16,13 @@ namespace MovieManagerImplement
             this.context = context;
         }
 
-        public object CreateUser(User user)
+        public long CreateUser(User user)
         {
-            if (user.nick == "" || user.nick == null || user.password == "" || user.password == "")
+            if (user.nick == "" || user.nick == null || user.password == "" || user.password == null)
             {
                 return -2;
             }
             IEnumerable<User> temp_u = context.users.Where(t_u => t_u.nick == user.nick);
-            Console.WriteLine(temp_u);
             if (temp_u.Count() == 0)
             {
                 context.Add(user);

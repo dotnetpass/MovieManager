@@ -4,6 +4,7 @@ using MovieEntity;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
+using UserCheck;
 
 namespace MovieManager.Controllers
 {
@@ -19,10 +20,10 @@ namespace MovieManager.Controllers
         }
 
         //获取所有的forum
-        [HttpGet("get/all")]
-        public async Task<ActionResult<IEnumerable<Forum>>> GetAllForums()
+        [HttpGet("get/all/{page}/{size}")]
+        public async Task<ActionResult<object>> GetAllForums(int page, int size)
         {
-            return new ActionResult<IEnumerable<Forum>>(dao.GetAllForums());
+            return dao.GetAllForums(page, size);
         }
 
         //根据forum的名字来搜索forum
@@ -32,11 +33,17 @@ namespace MovieManager.Controllers
             return new ActionResult<IEnumerable<Forum>>(dao.GetForumsByName(name));
         }
 
+        [HttpGet("get/id/{id}")]
+        public async Task<ActionResult<object>> GetForumById(int id)
+        {
+            return dao.GetForumById(id);
+        }
+
         //登陆用户创建新的forum
         [HttpPost("create")]
         public async Task<ActionResult<int>> CreateForum(Forum forum)
         {
-            if (CheckUserState() > 0)
+            if (Check.CheckUserState(Request, HttpContext) > 0)
             {
                 forum.publisher_id = long.Parse(Request.Cookies["user"]);
                 return dao.CreateForum(forum);
@@ -51,7 +58,7 @@ namespace MovieManager.Controllers
         [HttpGet("get/user")]
         public async Task<ActionResult<IEnumerable<Forum>>> GetForumsByUserId()
         {
-            if (CheckUserState() > 0)
+            if (Check.CheckUserState(Request, HttpContext) > 0)
             {
                 return new ActionResult<IEnumerable<Forum>>(dao.GetForumsByUserId(long.Parse(Request.Cookies["user"])));
             } else
@@ -70,20 +77,6 @@ namespace MovieManager.Controllers
                 return dao.DeleteForumById(forum_id, long.Parse(id));
             }
             return false;
-        }
-
-        public int CheckUserState()
-        {
-            if (Request.Cookies.ContainsKey("user"))
-            {
-                string id = Request.Cookies["user"];
-                if (HttpContext.Session.GetString(id) != null)
-                {
-                    return 1;
-                }
-                return -1;
-            }
-            return -1;
         }
     }
 }

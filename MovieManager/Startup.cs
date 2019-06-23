@@ -10,6 +10,7 @@ using MovieInterface;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
 using MovieManagerImplement;
+using System.Net;
 
 namespace MovieManager
 {
@@ -57,7 +58,6 @@ namespace MovieManager
             services.AddScoped<IForumDao, ForumDao>();
             services.AddScoped<IUserForumDao, UserForumDao>();
             services.AddScoped<IMovieDetailDao, MovieDetailDao>();
-
             services.AddSingleton(HtmlEncoder.Create(UnicodeRanges.All));
 
         }
@@ -73,7 +73,7 @@ namespace MovieManager
                 app.UseHsts();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseSession();
             app.UseMvc();
         }
