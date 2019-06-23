@@ -2,6 +2,7 @@
 using MovieEntity;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using UserCheck;
 
 namespace MovieManager.Controllers
 {
@@ -20,7 +21,17 @@ namespace MovieManager.Controllers
         [HttpGet("get/{id}")]
         public async Task<ActionResult<object>> GetMovieDetailById(int id)
         {
-            return dao.GetMovieDetailsById(id);
+            if (Check.CheckUserState(Request, HttpContext) > 0)
+            {
+                var user_id = long.Parse(Request.Cookies["user"]);
+                return dao.GetMovieDetailsById(id, user_id);
+            }
+            else
+            {
+                Response.StatusCode = 403;
+                return -1;
+            }
+            
         }
         
     }

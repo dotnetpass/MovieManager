@@ -6,6 +6,6 @@ namespace MovieInterface
 {
     public interface IMovieDetailDao
     {
-        object GetMovieDetailsById(int id);
+        object GetMovieDetailsById(int id, long user_id);
     }
 }

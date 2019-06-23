@@ -76,11 +76,22 @@ namespace MovieManagerImplement
             if (user != null)
             {
                 result.Add("nick", user.nick);
+                UserForum userForum = context.userForums.SingleOrDefault(u => u.forum_id == id && u.user_id == user.id);
+                if (userForum != null)
+                {
+                    result.Add("like", true);
+                }
+                else
+                {
+                    result.Add("like", false);
+                }
             }
             else
             {
                 result.Add("nick", null);
+                result.Add("like", false);
             }
+            
             
             return JsonConvert.SerializeObject(result);
 

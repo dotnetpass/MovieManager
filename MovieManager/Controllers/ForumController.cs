@@ -36,7 +36,16 @@ namespace MovieManager.Controllers
         [HttpGet("get/id/{id}")]
         public async Task<ActionResult<object>> GetForumById(int id)
         {
-            return dao.GetForumById(id);
+            if (Check.CheckUserState(Request, HttpContext) > 0)
+            {
+                return dao.GetForumById(id);
+            }
+            else
+            {
+                Response.StatusCode = 403;
+                return -1;
+            }
+            
         }
 
         //登陆用户创建新的forum
