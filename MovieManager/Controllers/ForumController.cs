@@ -50,6 +50,7 @@ namespace MovieManager.Controllers
             }
             else
             {
+                Response.StatusCode = 403;
                 return -1;
             }
         }
