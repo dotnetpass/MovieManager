@@ -50,9 +50,20 @@ namespace MovieManagerImplement
             return JsonConvert.SerializeObject(result);
         }
 
-        public IEnumerable<Forum> GetForumsByName(string name)
+        public object GetForumsByName(string name)
         {
-            return context.forums.Where(f => f.name.Contains(name));
+            var result_forums = from forums in context.forums
+                                join users in context.users on forums.publisher_id equals users.id
+                                where forums.name.Contains(name)
+                                select new
+                                {
+                                    id = forums.id,
+                                    name = forums.name,
+                                    description = forums.description,
+                                    user_id = users.id,
+                                    nick = users.nick
+                                };
+            return JsonConvert.SerializeObject(result_forums);
         }
 
         public object GetForumById(int id)
