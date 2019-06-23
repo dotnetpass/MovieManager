@@ -4,7 +4,7 @@ namespace MovieInterface
 {
     public interface IUserDao
     {
-        object CreateUser(User user);
+        long CreateUser(User user);
 
         bool DeleteUserById(long id);
 

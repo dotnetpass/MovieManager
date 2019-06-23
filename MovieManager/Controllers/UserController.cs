@@ -23,7 +23,15 @@ namespace MovieManager.Controllers
         [HttpPost("create")]
         public async Task<ActionResult<object>> CreateUser(User user)
         {
-            return dao.CreateUser(user);
+            long id = dao.CreateUser(user);
+            if (id > 0)
+            {
+                var options = new CookieOptions();
+                options.Expires = DateTime.Now.AddSeconds(300);
+                Response.Cookies.Append("user", id.ToString(), options);
+                HttpContext.Session.SetString(id.ToString(), id.ToString());
+            }
+            return id;
         }
 
         //
