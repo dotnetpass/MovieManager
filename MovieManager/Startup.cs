@@ -49,6 +49,8 @@ namespace MovieManager
                 opt.UseMySql(Configuration.GetConnectionString("MovieConnection")));
             services.AddDbContext<MovieDetailContext>(opt =>
                 opt.UseMySql(Configuration.GetConnectionString("MovieConnection")));
+            services.AddDbContext<DiscussionContext>(opt =>
+                opt.UseMySql(Configuration.GetConnectionString("MovieConnection")));
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1).AddJsonOptions(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
             services.AddScoped<IUserDao, UserDao>();
@@ -58,6 +60,7 @@ namespace MovieManager
             services.AddScoped<IForumDao, ForumDao>();
             services.AddScoped<IUserForumDao, UserForumDao>();
             services.AddScoped<IMovieDetailDao, MovieDetailDao>();
+            services.AddScoped<IDiscussionDao, DiscussionDao>();
             services.AddSingleton(HtmlEncoder.Create(UnicodeRanges.All));
 
         }

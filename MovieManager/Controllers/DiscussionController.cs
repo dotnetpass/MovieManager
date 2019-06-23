@@ -20,10 +20,10 @@ namespace MovieManager.Controllers
             this.dao = dao;
         }
 
-        [HttpGet("get/forum/{forum_id}")]
-        public async Task<ActionResult<object>> GetForumAndDiscussionsByForumId(int forum_id)
+        [HttpGet("get/forum/{forum_id}/{page}/{size}")]
+        public async Task<ActionResult<object>> GetForumAndDiscussionsByForumId(int forum_id, int page, int size)
         {
-            return dao.GetForumAndDiscussion(forum_id);
+            return dao.GetForumAndDiscussion(forum_id, page, size);
         }
 
         [HttpPost("create")]
@@ -33,6 +33,7 @@ namespace MovieManager.Controllers
             int id = -1;
             if (CheckUserState() > 0)
             {
+                discussion.user_id = long.Parse(Request.Cookies["user"]);
                 user_state = true;
                 id = dao.AddDiscussion(discussion);
             }
@@ -42,7 +43,6 @@ namespace MovieManager.Controllers
             return result;
         }
 
-        [HttpDelete()]
 
         public int CheckUserState()
         {

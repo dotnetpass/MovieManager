@@ -21,3 +21,4 @@ C:\Users\Stephen\Desktop\MovieManager\dll\MovieInterface\MovieInterface\obj\Debu
 C:\Users\Stephen\Desktop\MovieManager\dll\MovieInterface\MovieInterface\obj\Debug\netcoreapp2.1\MovieInterface.csproj.CopyComplete
 C:\Users\Stephen\Desktop\MovieManager\dll\MovieInterface\MovieInterface\obj\Debug\netcoreapp2.1\MovieInterface.dll
 C:\Users\Stephen\Desktop\MovieManager\dll\MovieInterface\MovieInterface\obj\Debug\netcoreapp2.1\MovieInterface.pdb
+C:\Users\Stephen\Desktop\MovieManager\dll\MovieInterface\MovieInterface\obj\Debug\netcoreapp2.1\MovieInterface.csprojAssemblyReference.cache
