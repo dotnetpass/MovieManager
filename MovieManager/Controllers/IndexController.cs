@@ -8,10 +8,21 @@ using UserCheck;
 
 namespace MovieManager.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class IndexController : ControllerBase
     {
+        private IIndexDao dao;
 
+        public IndexController(IIndexDao dao)
+        {
+            this.dao = dao;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<object>> Index()
+        {
+            return dao.Index();
+        }
     }
 }
