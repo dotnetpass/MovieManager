@@ -80,6 +80,5 @@ namespace MovieManager.Controllers
             result.Add("delete_state", data);
             return result;
         }
-
     }
 }

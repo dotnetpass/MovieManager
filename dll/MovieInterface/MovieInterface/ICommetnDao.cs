@@ -15,7 +15,7 @@ namespace MovieInterface
 
         IEnumerable<Comment> GetCommentsByMovieId(int id);
 
-        double GetMeanScoreByMovieId(int id);
+        /*double GetMeanScoreByMovieId(int id);*/
 
     }
 }

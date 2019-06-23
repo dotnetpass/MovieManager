@@ -62,21 +62,21 @@ namespace MovieManagerImplement
             return false;
         }
 
-        public double GetMeanScoreByMovieId(int id)
-        {
-            int[] scores = context.comments.Where(c => c.movie_id == id).Select(c => c.score).ToArray();
-            double[] temp_scores = new double[scores.Length];
-            for (int i = 0; i < scores.Length; i++)
-            {
-                temp_scores[i] = scores[i];
-            }
-            return RefCppDll.CalculateMeanScore(ref temp_scores[0], temp_scores.Length);
-        }
+        //public double GetMeanScoreByMovieId(int id)
+        //{
+        //    int[] scores = context.comments.Where(c => c.movie_id == id).Select(c => c.score).ToArray();
+        //    double[] temp_scores = new double[scores.Length];
+        //    for (int i = 0; i < scores.Length; i++)
+        //    {
+        //        temp_scores[i] = scores[i];
+        //    }
+        //    return RefCppDll.CalculateMeanScore(ref temp_scores[0], temp_scores.Length);
+        //}
     }
 
-    public class RefCppDll
-    {
-        [DllImport("MovieScoreDLL.dll", EntryPoint = "CalculateMeanScore", CallingConvention = CallingConvention.Cdecl)]
-        public extern static double CalculateMeanScore(ref double arr, int len);
-    }
+    //public class RefCppDll
+    //{
+    //    [DllImport("MovieScoreDLL.dll", EntryPoint = "CalculateMeanScore", CallingConvention = CallingConvention.Cdecl)]
+    //    public extern static double CalculateMeanScore(ref double arr, int len);
+    //}
 }

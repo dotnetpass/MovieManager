@@ -68,10 +68,10 @@ namespace MovieManager.Controllers
         public async Task<ActionResult<object>> GetCommentByMovieId(int id)
         {
             var data = dao.GetCommentsByMovieId(id);
-            double mean_score = dao.GetMeanScoreByMovieId(id);
+            //double mean_score = dao.GetMeanScoreByMovieId(id);
             Dictionary<string, object> result = new Dictionary<string, object>();
             result.Add("data", data);
-            result.Add("mean_score", mean_score);
+            //result.Add("mean_score", mean_score);
             return result;
         }
 
