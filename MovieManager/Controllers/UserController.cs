@@ -46,7 +46,7 @@ namespace MovieManager.Controllers
             return JsonConvert.SerializeObject(result);
         }
 
-        //
+
         [HttpDelete("delete/{id}")]
         public async Task<ActionResult<bool>> DeleteUser(long id)
         {

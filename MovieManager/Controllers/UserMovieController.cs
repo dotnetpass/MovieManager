@@ -3,6 +3,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MovieEntity;
 using MovieInterface;
+using Newtonsoft.Json;
+using UserCheck;
 
 namespace MovieManager.Controllers
 {
@@ -19,15 +21,36 @@ namespace MovieManager.Controllers
         }
 
         [HttpGet("add/{movie_id}")]
-        public bool AddMovie(int movie_id)
+        public async Task<ActionResult<object>> AddMovie(int movie_id)
         {
-            return dao.AddUserMovie(new UserMovie(1, movie_id));
+            bool login = false;
+            bool add_state = false;
+            if (Check.CheckUserState(Request, HttpContext) > 0)
+            {
+                login = true;
+                var user_movie = new UserMovie(long.Parse(Request.Cookies["user"]), movie_id);
+                add_state = dao.AddUserMovie(user_movie);
+            }
+            Dictionary<string, object> result = new Dictionary<string, object>();
+            result.Add("login_state", login);
+            result.Add("add_state", add_state);
+            return JsonConvert.SerializeObject(result);
         }
 
         [HttpDelete("delete/{movie_id}")]
-        public bool DeleteMovie(int movie_id)
+        public async Task<ActionResult<object>> DeleteMovie(int movie_id)
         {
-            return dao.DeleteUserMovie(1, movie_id);
+            bool login = false;
+            bool delete_state = false;
+            if (Check.CheckUserState(Request, HttpContext) > 0)
+            {
+                login = true;
+                delete_state = dao.DeleteUserMovie(long.Parse(Request.Cookies["user"]), movie_id);
+            }
+            Dictionary<string, object> result = new Dictionary<string, object>();
+            result.Add("login_state", login);
+            result.Add("delete_state", delete_state);
+            return JsonConvert.SerializeObject(result);
         }
 
         [HttpGet("get/favorite")]
