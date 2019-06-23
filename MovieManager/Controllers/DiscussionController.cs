@@ -48,6 +48,7 @@ namespace MovieManager.Controllers
         }
 
 
+
         public int CheckUserState()
         {
             if (Request.Cookies.ContainsKey("user"))

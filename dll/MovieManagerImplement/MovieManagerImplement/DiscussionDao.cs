@@ -44,9 +44,7 @@ namespace MovieManagerImplement
         public object GetForumAndDiscussion(int forum_id, int page, int size)
         {
             Dictionary<string, object> result = new Dictionary<string, object>();
-            IEnumerable<Discussion> data = null;
-            var dis = context.discussions.OrderByDescending(d => d.time).Where(d => d.forum_id == forum_id);
-            var temp_result = from discussion in dis
+            var temp_result = from discussion in context.discussions
                               join users in context.users on discussion.user_id equals users.id
                               orderby discussion.time descending
                               where discussion.forum_id == forum_id
@@ -62,17 +60,22 @@ namespace MovieManagerImplement
                                   forum_id = discussion.forum_id
                               };
             int count = temp_result.Count();
+            result.Add("data", temp_result);
+            if (temp_result == null || temp_result.Count() == 0)
+            {
+                result.Add("data", null);
+            }
             if (page == 1)
             {
-                data = dis.Take(size);
+                result.Add("data", temp_result.Take(size));
             }
             else if (page * size <= count)
             {
-                data = dis.Skip((page - 1) * size).Take(size);
+                result.Add("data", temp_result.Skip((page - 1) * size).Take(size));
             }
             else
             {
-                data = dis.Skip((page - 1) * size).ToList();
+                result.Add("data", temp_result.Skip((page - 1) * size).ToList());
             }
             int total_page = 0;
             if (count % size == 0)
@@ -87,7 +90,7 @@ namespace MovieManagerImplement
             result.Add("totalPage", total_page);
             result.Add("count", count);
             result.Add("pageSize", size);
-            result.Add("data", data);
+            
 
             return JsonConvert.SerializeObject(result);
         }
