@@ -60,12 +60,11 @@ namespace MovieManagerImplement
                                   forum_id = discussion.forum_id
                               };
             int count = temp_result.Count();
-            result.Add("data", temp_result);
             if (temp_result == null || temp_result.Count() == 0)
             {
                 result.Add("data", null);
             }
-            if (page == 1)
+            else if (page == 1)
             {
                 result.Add("data", temp_result.Take(size));
             }
