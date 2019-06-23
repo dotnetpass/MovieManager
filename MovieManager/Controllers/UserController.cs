@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using System;
 using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace MovieManager.Controllers
 {
@@ -24,14 +26,23 @@ namespace MovieManager.Controllers
         public async Task<ActionResult<object>> CreateUser(User user)
         {
             long id = dao.CreateUser(user);
+            Dictionary<string, object> result = new Dictionary<string, object>();
             if (id > 0)
             {
                 var options = new CookieOptions();
                 options.Expires = DateTime.Now.AddSeconds(300);
                 Response.Cookies.Append("user", id.ToString(), options);
                 HttpContext.Session.SetString(id.ToString(), id.ToString());
+                result.Add("id", id);
+                result.Add("nick", user.nick);
+                result.Add("avatar_url", user.avatar_url);
             }
-            return id;
+            else
+            {
+                result.Add("error", 400);
+            }
+
+            return JsonConvert.SerializeObject(result);
         }
 
         //
@@ -54,14 +65,15 @@ namespace MovieManager.Controllers
         }
 
         [HttpPost("login")]
-        public string Login([FromBody]JObject user_information)
+        public object Login([FromBody]JObject user_information)
         {
+            Dictionary<string, object> result = new Dictionary<string, object>();
             string user_name = user_information["nick"].ToString();
             string password = user_information["password"].ToString();
             long is_login = dao.Login(user_name, password);
             if (is_login < 0)
             {
-                return "验证失败，请重新登陆";
+                result.Add("error", "用户名或密码错误");
             }
             else
             {
@@ -69,8 +81,12 @@ namespace MovieManager.Controllers
                 options.Expires = DateTime.Now.AddSeconds(300);
                 Response.Cookies.Append("user", is_login.ToString(), options);
                 HttpContext.Session.SetString(is_login.ToString(), is_login.ToString());
-                return "登陆成功";
+                User user = dao.GetUserById(is_login);
+                result.Add("id", is_login.ToString());
+                result.Add("nick", user_name);
+                result.Add("avatar_url", user.avatar_url);
             }
+            return JsonConvert.SerializeObject(result);
         }
 
         [HttpGet("logout")]
