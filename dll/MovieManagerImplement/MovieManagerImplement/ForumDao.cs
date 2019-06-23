@@ -3,6 +3,7 @@ using MovieManagerContext;
 using MovieInterface;
 using System.Collections.Generic;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace MovieManagerImplement
 {
@@ -15,14 +16,63 @@ namespace MovieManagerImplement
             this.context = context;
         }
 
-        public IEnumerable<Forum> GetAllForums()
+        public object GetAllForums(int page, int size)
         {
-            return context.forums.ToList();
+            Dictionary<string, object> result = new Dictionary<string, object>();
+            IEnumerable<Forum> data = null;
+            int count = context.forums.Count();
+            if (page == 1)
+            {
+                data = context.forums.Take(size);
+            }
+            else if (page * size <= count)
+            {
+                data = context.forums.Skip((page - 1) * size).Take(size);
+            }
+            else
+            {
+                data = context.forums.Skip((page - 1) * size).ToList();
+            }
+            int total_page = 0;
+            if (count % size == 0)
+            {
+                total_page = count / size;
+            }
+            else
+            {
+                total_page = count / size + 1;
+            }
+            result.Add("page", page);
+            result.Add("totalPage", total_page);
+            result.Add("count", count);
+            result.Add("pageSize", size);
+            result.Add("data", data);
+            return JsonConvert.SerializeObject(result);
         }
 
         public IEnumerable<Forum> GetForumsByName(string name)
         {
             return context.forums.Where(f => f.name.Contains(name));
+        }
+
+        public object GetForumById(int id)
+        {
+            Forum forum =  context.forums.SingleOrDefault(f => f.id == id);
+            User user = context.users.SingleOrDefault(u => u.id == forum.publisher_id);
+            Dictionary<string, object> result = new Dictionary<string, object>();
+            result.Add("name", forum.name);
+            result.Add("description", forum.description);
+            if (user != null)
+            {
+                result.Add("nick", user.nick);
+            }
+            else
+            {
+                result.Add("nick", null);
+            }
+            
+            return JsonConvert.SerializeObject(result);
+
         }
 
         public int CreateForum(Forum forum)

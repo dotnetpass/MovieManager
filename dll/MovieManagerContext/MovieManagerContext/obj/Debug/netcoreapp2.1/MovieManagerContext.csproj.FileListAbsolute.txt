@@ -20,3 +20,4 @@ C:\Users\Stephen\Desktop\MovieManager\dll\MovieManagerContext\MovieManagerContex
 C:\Users\Stephen\Desktop\MovieManager\dll\MovieManagerContext\MovieManagerContext\obj\Debug\netcoreapp2.1\MovieManagerContext.csproj.CopyComplete
 C:\Users\Stephen\Desktop\MovieManager\dll\MovieManagerContext\MovieManagerContext\obj\Debug\netcoreapp2.1\MovieManagerContext.dll
 C:\Users\Stephen\Desktop\MovieManager\dll\MovieManagerContext\MovieManagerContext\obj\Debug\netcoreapp2.1\MovieManagerContext.pdb
+C:\Users\Stephen\Desktop\MovieManager\dll\MovieManagerContext\MovieManagerContext\obj\Debug\netcoreapp2.1\MovieManagerContext.csprojAssemblyReference.cache

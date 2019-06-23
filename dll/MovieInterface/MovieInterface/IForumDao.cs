@@ -5,7 +5,9 @@ namespace MovieInterface
 {
     public interface IForumDao
     {
-        IEnumerable<Forum> GetAllForums();
+        object GetAllForums(int page, int size);
+
+        object GetForumById(int id);
 
         IEnumerable<Forum> GetForumsByName(string name);
 
