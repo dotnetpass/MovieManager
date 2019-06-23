@@ -91,8 +91,8 @@ namespace MovieManagerImplement
                 result.Add("nick", null);
                 result.Add("like", false);
             }
-            
-            
+
+
             return JsonConvert.SerializeObject(result);
 
         }

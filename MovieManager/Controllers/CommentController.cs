@@ -64,10 +64,10 @@ namespace MovieManager.Controllers
             return result;
         }
 
-        [HttpGet("get/movie/{id}")]
-        public async Task<ActionResult<object>> GetCommentByMovieId(int id)
+        [HttpGet("get/movie/{id}/{page}/{size}")]
+        public async Task<ActionResult<object>> GetCommentByMovieId(int id, int page, int size)
         {
-            var data = dao.GetCommentsByMovieId(id);
+            var data = dao.GetCommentsByMovieId(id, page, size);
             //double mean_score = dao.GetMeanScoreByMovieId(id);
             Dictionary<string, object> result = new Dictionary<string, object>();
             result.Add("data", data);

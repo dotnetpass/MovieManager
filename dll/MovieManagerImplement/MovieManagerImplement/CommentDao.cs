@@ -42,9 +42,39 @@ namespace MovieManagerImplement
             return context.comments.OrderByDescending(c => c.time).Where(c => c.user_id == id);
         }
 
-        public IEnumerable<Comment> GetCommentsByMovieId(int id)
+        public object GetCommentsByMovieId(int id, int page, int size)
         {
-            return context.comments.OrderByDescending(c => c.time).Where(c => c.movie_id == id);
+            Dictionary<string, object> result = new Dictionary<string, object>();
+            var comments = context.comments.OrderByDescending(c => c.time).Where(c => c.movie_id == id);
+            IQueryable<Comment> data = null;
+            int count = comments.Count();
+            if (page == 1)
+            {
+                data = comments.Take(size);
+            }
+            else if (page * size <= count)
+            {
+                data = comments.Skip((page - 1) * size).Take(size);
+            }
+            else
+            {
+                data = comments.Skip((page - 1) * size);
+            }
+            int total_page = 0;
+            if (count % size == 0)
+            {
+                total_page = count / size;
+            }
+            else
+            {
+                total_page = count / size + 1;
+            }
+            result.Add("page", page);
+            result.Add("totalPage", total_page);
+            result.Add("count", count);
+            result.Add("pageSize", size);
+            result.Add("data", data);
+            return result;
         }
 
         public bool UpdateCommentById(int id, Comment comment)

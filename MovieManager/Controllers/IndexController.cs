@@ -12,5 +12,9 @@ namespace MovieManager.Controllers
     [ApiController]
     public class IndexController : ControllerBase
     {
+        
+        //private I
+
+        //[HttpGet("")]
     }
 }

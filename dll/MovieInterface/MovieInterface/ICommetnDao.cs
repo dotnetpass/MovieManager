@@ -13,7 +13,7 @@ namespace MovieInterface
 
         IEnumerable<Comment> GetCommentsByUserId(long id);
 
-        IEnumerable<Comment> GetCommentsByMovieId(int id);
+        object GetCommentsByMovieId(int id, int page, int size);
 
         /*double GetMeanScoreByMovieId(int id);*/
 
