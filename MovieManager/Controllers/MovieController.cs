@@ -20,11 +20,12 @@ namespace MovieManager.Controllers
         }
 
         [HttpGet("get/{sort_item}/{sort_text}/{order_item}/{page}/{size}")]
-        public async Task<ActionResult<IEnumerable<Movie>>> GetItems(string sort_item, string sort_text, string order_item, int page, int size)
+        public async Task<ActionResult<object>> GetItems(string sort_item, string sort_text, string order_item, int page, int size)
         {
-            return new ActionResult<IEnumerable<Movie>>(dao.GetMoviesByPages(page, size,
+            var result = dao.GetMoviesByPages(page, size,
                 dao.GetMoviesOrderedByValue(order_item,
-                dao.GetMoviesSortedByValue(sort_item, sort_text))));
+                dao.GetMoviesSortedByValue(sort_item, sort_text)));
+            return result;
         }
 
     }

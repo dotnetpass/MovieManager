@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>
@@ -17,6 +17,7 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.1.0" />
     <PackageReference Include="System.Text.Encoding.CodePages" Version="4.5.1" />
   </ItemGroup>
@@ -35,7 +36,7 @@
       <HintPath>..\dll\MovieManagerImplement\MovieManagerImplement\bin\Debug\netcoreapp2.1\MovieManagerImplement.dll</HintPath>
     </Reference>
     <Reference Include="UserCheck">
-      <HintPath>..\..\..\..\..\Windows\Microsoft.NET\assembly\GAC_64\UserCheck\v4.0_1.0.0.0__5398d46f446f9815\UserCheck.dll</HintPath>
+      <HintPath>..\dll\UserCheck\UserCheck\bin\Debug\netcoreapp2.1\UserCheck.dll</HintPath>
     </Reference>
   </ItemGroup>
 

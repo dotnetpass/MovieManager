@@ -10,7 +10,7 @@ namespace MovieInterface
 
         IQueryable<Movie> GetMoviesOrderedByValue(string item, IQueryable<Movie> movies);
 
-        IEnumerable<Movie> GetMoviesByPages(int page, int size, IQueryable<Movie> movies);
+        object GetMoviesByPages(int page, int size, IQueryable<Movie> movies);
 
     }
 }

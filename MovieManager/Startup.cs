@@ -48,7 +48,7 @@ namespace MovieManager
                 opt.UseMySql(Configuration.GetConnectionString("MovieConnection")));
             services.AddDbContext<MovieDetailContext>(opt =>
                 opt.UseMySql(Configuration.GetConnectionString("MovieConnection")));
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1).AddJsonOptions(x => x.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);
 
             services.AddScoped<IUserDao, UserDao>();
             services.AddScoped<ICommentDao, CommentDao>();

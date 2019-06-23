@@ -3,6 +3,7 @@ using MovieManagerContext;
 using MovieInterface;
 using MovieEntity;
 using System.Linq;
+using Newtonsoft.Json;
 
 namespace MovieManagerImplement
 {
@@ -55,21 +56,38 @@ namespace MovieManagerImplement
             }
         }
 
-        public IEnumerable<Movie> GetMoviesByPages(int page, int size, IQueryable<Movie> movies)
+        public object GetMoviesByPages(int page, int size, IQueryable<Movie> movies)
         {
+            Dictionary<string, object> result = new Dictionary<string, object>();
+            IEnumerable<Movie> data = null;
             int count = movies.Count();
             if (page == 1)
             {
-                return movies.Take(size);
+                data =  movies.Take(size);
             }
             else if (page * size <= count)
             {
-                return movies.Skip((page - 1) * size).Take(size);
+                data =  movies.Skip((page - 1) * size).Take(size);
             }
             else
             {
-                return movies.Skip((page - 1) * size).ToList();
+                data = movies.Skip((page - 1) * size).ToList();
             }
+            int total_page = 0;
+            if (count % size == 0)
+            {
+                total_page = count / size;
+            }
+            else
+            {
+                total_page = count / size + 1;
+            }
+            result.Add("page", page);
+            result.Add("totalPage", total_page);
+            result.Add("count", count);
+            result.Add("pageSize", size);
+            result.Add("data", data);
+            return JsonConvert.SerializeObject(result);
         }
     }
 }
