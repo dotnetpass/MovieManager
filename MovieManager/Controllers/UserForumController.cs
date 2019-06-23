@@ -32,6 +32,10 @@ namespace MovieManager.Controllers
                 var userForum = new UserForum(long.Parse(Request.Cookies["user"]), forum_id);
                 id =  dao.CreateUserForum(userForum);
             }
+            else
+            {
+                Response.StatusCode = 403;
+            }
             Dictionary<string, object> result = new Dictionary<string, object>();
             result.Add("login_state", login);
             result.Add("id", id);
@@ -51,6 +55,10 @@ namespace MovieManager.Controllers
                 long user_id = long.Parse(Request.Cookies["user"]);
                 data = dao.GetUserForumByUserId(user_id);
             }
+            else
+            {
+                Response.StatusCode = 403;
+            }
             Dictionary<string, object> result = new Dictionary<string, object>();
             result.Add("login_state", login_state);
             result.Add("data", data);
@@ -69,6 +77,10 @@ namespace MovieManager.Controllers
                 tag_login = true;
                 long user_id = long.Parse(Request.Cookies["user"]);
                 tag = dao.DeleteUserForum(user_id, forum_id);
+            }
+            else
+            {
+                Response.StatusCode = 403;
             }
             result.Add("login_state", tag_login);
             result.Add("delete_state", tag);

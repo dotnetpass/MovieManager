@@ -31,6 +31,10 @@ namespace MovieManager.Controllers
                 var user_movie = new UserMovie(long.Parse(Request.Cookies["user"]), movie_id);
                 add_state = dao.AddUserMovie(user_movie);
             }
+            else
+            {
+                Response.StatusCode = 403;
+            }
             Dictionary<string, object> result = new Dictionary<string, object>();
             result.Add("login_state", login);
             result.Add("add_state", add_state);
@@ -46,6 +50,10 @@ namespace MovieManager.Controllers
             {
                 login = true;
                 delete_state = dao.DeleteUserMovie(long.Parse(Request.Cookies["user"]), movie_id);
+            }
+            else
+            {
+                Response.StatusCode = 403;
             }
             Dictionary<string, object> result = new Dictionary<string, object>();
             result.Add("login_state", login);

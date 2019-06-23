@@ -37,6 +37,10 @@ namespace MovieManager.Controllers
                 user_state = true;
                 id = dao.AddDiscussion(discussion);
             }
+            else
+            {
+                Response.StatusCode = 403;
+            }
             Dictionary<string, object> result = new Dictionary<string, object>();
             result.Add("user_state", user_state);
             result.Add("id", id);
