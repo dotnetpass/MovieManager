@@ -62,9 +62,23 @@ namespace MovieManager.Controllers
         }
 
         [HttpGet("get/favorite")]
-        public async Task<ActionResult<IEnumerable<object>>> GetFavorateMovies()
+        public async Task<ActionResult<object>> GetFavorateMovies()
         {
-            return new ActionResult<IEnumerable<object>>(dao.GetUserMovie(1));
+            bool login = false;
+            IEnumerable<object> data = null;
+            if (Check.CheckUserState(Request, HttpContext) > 0)
+            {
+                login = true;
+                data = dao.GetUserMovie(long.Parse(Request.Cookies["user"]));
+            }
+            else
+            {
+                Response.StatusCode = 403;
+            }
+            Dictionary<string, object> result = new Dictionary<string, object>();
+            result.Add("login_state", login);
+            result.Add("delete_state", data);
+            return result;
         }
 
     }
