@@ -7,7 +7,7 @@ namespace MovieInterface
     {
         object GetAllForums(int page, int size);
 
-        object GetForumById(int id);
+        object GetForumById(int id, long user_id);
 
         object GetForumsByName(string name);
 

@@ -38,7 +38,7 @@ namespace MovieManager.Controllers
         {
             if (Check.CheckUserState(Request, HttpContext) > 0)
             {
-                return dao.GetForumById(id);
+                return dao.GetForumById(id, long.Parse(Request.Cookies["user"]));
             }
             else
             {

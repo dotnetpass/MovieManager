@@ -66,33 +66,35 @@ namespace MovieManagerImplement
             return JsonConvert.SerializeObject(result_forums);
         }
 
-        public object GetForumById(int id)
+        public object GetForumById(int id, long user_id)
         {
             Forum forum =  context.forums.SingleOrDefault(f => f.id == id);
-            User user = context.users.SingleOrDefault(u => u.id == forum.publisher_id);
             Dictionary<string, object> result = new Dictionary<string, object>();
+            User user = context.users.SingleOrDefault(u => u.id == user_id);
+            result.Add("nick", user.nick);
             result.Add("name", forum.name);
             result.Add("description", forum.description);
-            if (user != null)
+            var userForum = context.userForums.SingleOrDefault(u => u.forum_id == id && u.user_id == user_id);
+            if (userForum != null)
             {
-                result.Add("nick", user.nick);
-                UserForum userForum = context.userForums.SingleOrDefault(u => u.forum_id == id && u.user_id == user.id);
-                if (userForum != null)
-                {
-                    result.Add("like", true);
-                }
-                else
-                {
-                    result.Add("like", false);
-                }
+                
+                result.Add("like", true);
+                
             }
             else
             {
-                result.Add("nick", null);
                 result.Add("like", false);
             }
+            //if (user != null)
+            //{
+            //    result.Add("nick", user.nick);
 
-
+            //}
+            //else
+            //{
+            //    result.Add("nick", null);
+            //    result.Add("like", false);
+            //}
             return JsonConvert.SerializeObject(result);
 
         }
