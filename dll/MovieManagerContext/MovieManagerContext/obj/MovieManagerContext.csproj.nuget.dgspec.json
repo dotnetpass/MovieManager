@@ -1,0 +1,64 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\Stephen\\Desktop\\MovieManager\\dll\\MovieManagerContext\\MovieManagerContext\\MovieManagerContext.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Stephen\\Desktop\\MovieManager\\dll\\MovieManagerContext\\MovieManagerContext\\MovieManagerContext.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Stephen\\Desktop\\MovieManager\\dll\\MovieManagerContext\\MovieManagerContext\\MovieManagerContext.csproj",
+        "projectName": "MovieManagerContext",
+        "projectPath": "C:\\Users\\Stephen\\Desktop\\MovieManager\\dll\\MovieManagerContext\\MovieManagerContext\\MovieManagerContext.csproj",
+        "packagesPath": "C:\\Users\\Stephen\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Stephen\\Desktop\\MovieManager\\dll\\MovieManagerContext\\MovieManagerContext\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Stephen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.1.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

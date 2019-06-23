@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="MovieEntity">
+      <HintPath>..\..\MovieEntity\MovieEntity\bin\Debug\netcoreapp2.1\MovieEntity.dll</HintPath>
+    </Reference>
+    <Reference Include="MovieInterface">
+      <HintPath>..\..\MovieInterface\MovieInterface\bin\Debug\netcoreapp2.1\MovieInterface.dll</HintPath>
+    </Reference>
+    <Reference Include="MovieManagerContext">
+      <HintPath>..\..\MovieManagerContext\MovieManagerContext\bin\Debug\netcoreapp2.1\MovieManagerContext.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

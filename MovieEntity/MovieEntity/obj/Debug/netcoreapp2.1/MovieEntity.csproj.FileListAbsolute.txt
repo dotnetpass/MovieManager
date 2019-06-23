@@ -1,8 +1,0 @@
-C:\Users\Stephen\Desktop\MovieEntity\MovieEntity\bin\Debug\netcoreapp2.1\MovieEntity.deps.json
-C:\Users\Stephen\Desktop\MovieEntity\MovieEntity\bin\Debug\netcoreapp2.1\MovieEntity.dll
-C:\Users\Stephen\Desktop\MovieEntity\MovieEntity\bin\Debug\netcoreapp2.1\MovieEntity.pdb
-C:\Users\Stephen\Desktop\MovieEntity\MovieEntity\obj\Debug\netcoreapp2.1\MovieEntity.csproj.CoreCompileInputs.cache
-C:\Users\Stephen\Desktop\MovieEntity\MovieEntity\obj\Debug\netcoreapp2.1\MovieEntity.AssemblyInfoInputs.cache
-C:\Users\Stephen\Desktop\MovieEntity\MovieEntity\obj\Debug\netcoreapp2.1\MovieEntity.AssemblyInfo.cs
-C:\Users\Stephen\Desktop\MovieEntity\MovieEntity\obj\Debug\netcoreapp2.1\MovieEntity.dll
-C:\Users\Stephen\Desktop\MovieEntity\MovieEntity\obj\Debug\netcoreapp2.1\MovieEntity.pdb

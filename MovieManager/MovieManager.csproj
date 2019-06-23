@@ -8,27 +8,34 @@
     <StartupObject />
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="EntityFramework" Version="6.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="2.1.0" />
     <PackageReference Include="System.Text.Encoding.CodePages" Version="4.5.1" />
   </ItemGroup>
 
   <ItemGroup>
     <Reference Include="MovieEntity">
-      <HintPath>..\MovieEntity\MovieEntity\bin\Debug\netcoreapp2.1\MovieEntity.dll</HintPath>
+      <HintPath>..\dll\MovieEntity\MovieEntity\bin\Debug\netcoreapp2.1\MovieEntity.dll</HintPath>
     </Reference>
     <Reference Include="MovieInterface">
-      <HintPath>..\MovieInterface\MovieInterface\bin\Debug\netcoreapp2.1\MovieInterface.dll</HintPath>
+      <HintPath>..\dll\MovieInterface\MovieInterface\bin\Debug\netcoreapp2.1\MovieInterface.dll</HintPath>
     </Reference>
     <Reference Include="MovieManagerContext">
-      <HintPath>..\MovieManagerContext\MovieManagerContext\bin\Debug\netcoreapp2.1\MovieManagerContext.dll</HintPath>
+      <HintPath>..\dll\MovieManagerContext\MovieManagerContext\bin\Debug\netcoreapp2.1\MovieManagerContext.dll</HintPath>
     </Reference>
     <Reference Include="MovieManagerImplement">
-      <HintPath>..\MovieManagerImplement\MovieManagerImplement\bin\Debug\netcoreapp2.1\MovieManagerImplement.dll</HintPath>
+      <HintPath>..\dll\MovieManagerImplement\MovieManagerImplement\bin\Debug\netcoreapp2.1\MovieManagerImplement.dll</HintPath>
+    </Reference>
+    <Reference Include="UserCheck">
+      <HintPath>..\..\..\..\..\Windows\Microsoft.NET\assembly\GAC_64\UserCheck\v4.0_1.0.0.0__5398d46f446f9815\UserCheck.dll</HintPath>
     </Reference>
   </ItemGroup>
 

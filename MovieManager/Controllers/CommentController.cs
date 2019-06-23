@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using MovieEntity;
 using MovieInterface;
 using Newtonsoft.Json;
+using UserCheck;
 
 namespace MovieManager.Controllers
 {
@@ -21,12 +22,13 @@ namespace MovieManager.Controllers
             this.dao = dao;
         }
 
+        // 创建评论
         [HttpPost("create")]
         public async Task<ActionResult<object>> CreateComment(Comment comment)
         {
             bool user_state = false;
             int comment_id = -1;
-            if (CheckUserState() > 0)
+            if (Check.CheckUserState(Request, HttpContext) > 0)
             {
                 user_state = true;
                 long user_id = long.Parse(Request.Cookies["user"]);
@@ -63,9 +65,14 @@ namespace MovieManager.Controllers
         }
 
         [HttpGet("get/movie/{id}")]
-        public async Task<ActionResult<IEnumerable<Comment>>> GetCommentByMovieId(int id)
+        public async Task<ActionResult<object>> GetCommentByMovieId(int id)
         {
-            return new ActionResult<IEnumerable<Comment>>(dao.GetCommentsByMovieId(id));
+            var data = dao.GetCommentsByMovieId(id);
+            double mean_score = dao.GetMeanScoreByMovieId(id);
+            Dictionary<string, object> result = new Dictionary<string, object>();
+            result.Add("data", data);
+            result.Add("mean_score", mean_score);
+            return result;
         }
 
         [HttpPut("update/{id}")]

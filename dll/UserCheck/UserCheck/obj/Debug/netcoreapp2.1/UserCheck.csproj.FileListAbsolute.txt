@@ -1,0 +1,9 @@
+C:\Users\Stephen\Desktop\MovieManager\dll\UserCheck\UserCheck\bin\Debug\netcoreapp2.1\UserCheck.deps.json
+C:\Users\Stephen\Desktop\MovieManager\dll\UserCheck\UserCheck\bin\Debug\netcoreapp2.1\UserCheck.dll
+C:\Users\Stephen\Desktop\MovieManager\dll\UserCheck\UserCheck\obj\Debug\netcoreapp2.1\UserCheck.csproj.CoreCompileInputs.cache
+C:\Users\Stephen\Desktop\MovieManager\dll\UserCheck\UserCheck\obj\Debug\netcoreapp2.1\UserCheck.AssemblyInfoInputs.cache
+C:\Users\Stephen\Desktop\MovieManager\dll\UserCheck\UserCheck\obj\Debug\netcoreapp2.1\UserCheck.AssemblyInfo.cs
+C:\Users\Stephen\Desktop\MovieManager\dll\UserCheck\UserCheck\bin\Debug\netcoreapp2.1\UserCheck.pdb
+C:\Users\Stephen\Desktop\MovieManager\dll\UserCheck\UserCheck\obj\Debug\netcoreapp2.1\UserCheck.dll
+C:\Users\Stephen\Desktop\MovieManager\dll\UserCheck\UserCheck\obj\Debug\netcoreapp2.1\UserCheck.pdb
+C:\Users\Stephen\Desktop\MovieManager\dll\UserCheck\UserCheck\obj\Debug\netcoreapp2.1\UserCheck.csprojAssemblyReference.cache

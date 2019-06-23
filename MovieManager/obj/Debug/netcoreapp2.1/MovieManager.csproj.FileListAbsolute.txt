@@ -35,3 +35,4 @@ C:\Users\Stephen\Desktop\MovieManager\MovieManager\bin\Debug\netcoreapp2.1\Movie
 C:\Users\Stephen\Desktop\MovieManager\MovieManager\bin\Debug\netcoreapp2.1\MovieManagerContext.pdb
 C:\Users\Stephen\Desktop\MovieManager\MovieManager\bin\Debug\netcoreapp2.1\MovieManagerImplement.dll
 C:\Users\Stephen\Desktop\MovieManager\MovieManager\bin\Debug\netcoreapp2.1\MovieManagerImplement.pdb
+C:\Users\Stephen\Desktop\MovieManager\MovieManager\bin\Debug\netcoreapp2.1\UserCheck.dll
