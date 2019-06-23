@@ -76,19 +76,32 @@ namespace MovieManagerImplement
         {
             Dictionary<string, object> result = new Dictionary<string, object>();
             var comments = context.comments.OrderByDescending(c => c.time).Where(c => c.movie_id == id);
-            IQueryable<Comment> data = null;
+            var new_data = from _comments in comments
+                           join _users in context.users on _comments.user_id equals _users.id
+                           select new
+                           {
+                               id = _comments.id,
+                               user_id = _comments.user_id,
+                               movie_id = _comments.movie_id,
+                               content = _comments.content,
+                               time = _comments.time,
+                               score = _comments.score,
+                               nick = _users.nick,
+                               avatar_url = _users.avatar_url
+                           };
+            IQueryable<object> data = null;
             int count = comments.Count();
             if (page == 1)
             {
-                data = comments.Take(size);
+                data = new_data.Take(size);
             }
             else if (page * size <= count)
             {
-                data = comments.Skip((page - 1) * size).Take(size);
+                data = new_data.Skip((page - 1) * size).Take(size);
             }
             else
             {
-                data = comments.Skip((page - 1) * size);
+                data = new_data.Skip((page - 1) * size);
             }
             int total_page = 0;
             if (count % size == 0)

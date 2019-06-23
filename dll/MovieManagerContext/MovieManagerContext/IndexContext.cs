@@ -10,5 +10,6 @@ namespace MovieManagerContext
         public DbSet<Movie> movies;
         public DbSet<Comment> comments;
         public DbSet<Discussion> discussions;
+        public DbSet<User> users;
     }
 }
