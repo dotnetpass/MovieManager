@@ -3,7 +3,7 @@ using MovieEntity;
 
 namespace MovieManagerContext
 {
-    class IndexContext : DbContext
+    public class IndexContext : DbContext
     {
         public IndexContext(DbContextOptions<IndexContext> options) : base(options) { }
 

@@ -11,7 +11,7 @@ namespace MovieInterface
 
         bool UpdateCommentById(int id, Comment comment);
 
-        IEnumerable<Comment> GetCommentsByUserId(long id);
+        object GetCommentsByUserId(long id, int page, int size);
 
         object GetCommentsByMovieId(int id, int page, int size);
 

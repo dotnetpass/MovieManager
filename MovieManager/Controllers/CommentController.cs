@@ -48,15 +48,15 @@ namespace MovieManager.Controllers
             return dao.DeleteCommentById(id);
         }
 
-        [HttpGet("get/user")]
-        public async Task<ActionResult<object>> GetCommentByUserId()
+        [HttpGet("get/user/{page}/{size}")]
+        public async Task<ActionResult<object>> GetCommentByUserId(int page, int size)
         {
             bool user_state = false;
-            IEnumerable<Comment> comments = null;
+            object comments = null;
             if (CheckUserState() > 0)
             {
                 user_state = true;
-                comments = dao.GetCommentsByUserId(long.Parse(Request.Cookies["user"]));
+                comments = dao.GetCommentsByUserId(long.Parse(Request.Cookies["user"]), page, size);
             }
             Dictionary<string, object> result = new Dictionary<string, object>();
             result.Add("user_state", user_state);
