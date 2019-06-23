@@ -39,7 +39,8 @@ namespace MovieManager.Controllers
             }
             else
             {
-                result.Add("error", 400);
+                Response.StatusCode = 400;
+                result.Add("error", "该用户已经存在/密码不能为空");
             }
 
             return JsonConvert.SerializeObject(result);
@@ -73,6 +74,7 @@ namespace MovieManager.Controllers
             long is_login = dao.Login(user_name, password);
             if (is_login < 0)
             {
+                Response.StatusCode = 400;
                 result.Add("error", "用户名或密码错误");
             }
             else
