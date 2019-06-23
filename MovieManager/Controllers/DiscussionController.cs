@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MovieEntity;
 using MovieInterface;
-using Newtonsoft.Json;
 
 namespace MovieManager.Controllers
 {
