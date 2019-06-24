@@ -4,17 +4,22 @@ using MovieInterface;
 using MovieManagerContext;
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace MovieManagerImplement
 {
     public class UserDao : IUserDao
     {
-        public UserContext context;
+        private UserContext context;
+        private static Mutex mutex;
 
         public UserDao(UserContext context)
         {
             this.context = context;
+            mutex = new Mutex();
         }
+
+       
 
         public long CreateUser(User user)
         {
@@ -25,10 +30,12 @@ namespace MovieManagerImplement
             IEnumerable<User> temp_u = context.users.Where(t_u => t_u.nick == user.nick);
             if (temp_u.Count() == 0)
             {
+                mutex.WaitOne();
                 context.Add(user);
                 context.SaveChanges();
-                var u = context.users.SingleOrDefault(t_u => t_u.nick == user.nick);
+                var u = context.users.Where(t_u => t_u.nick == user.nick).First();
                 return u.id;
+                mutex.ReleaseMutex();
             }
             //重名
             return -1;
