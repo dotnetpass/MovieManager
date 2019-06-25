@@ -67,12 +67,7 @@ namespace MovieManager.Controllers
         [HttpGet("get/movie/{id}/{page}/{size}")]
         public async Task<ActionResult<object>> GetCommentByMovieId(int id, int page, int size)
         {
-            var data = dao.GetCommentsByMovieId(id, page, size);
-            //double mean_score = dao.GetMeanScoreByMovieId(id);
-            Dictionary<string, object> result = new Dictionary<string, object>();
-            result.Add("data", data);
-            //result.Add("mean_score", mean_score);
-            return result;
+            return dao.GetCommentsByMovieId(id, page, size);
         }
 
         [HttpPut("update/{id}")]

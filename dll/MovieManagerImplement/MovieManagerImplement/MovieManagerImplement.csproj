@@ -23,6 +23,9 @@
     <Reference Include="MovieManagerContext">
       <HintPath>..\..\MovieManagerContext\MovieManagerContext\bin\Debug\netcoreapp2.1\MovieManagerContext.dll</HintPath>
     </Reference>
+    <Reference Include="PageDLL">
+      <HintPath>..\..\PageDLL\PageDLL\bin\Debug\PageDLL.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

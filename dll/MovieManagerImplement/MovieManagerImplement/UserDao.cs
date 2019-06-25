@@ -2,7 +2,6 @@
 using MovieEntity;
 using MovieInterface;
 using MovieManagerContext;
-using System;
 using System.Collections.Generic;
 using System.Threading;
 
@@ -19,8 +18,6 @@ namespace MovieManagerImplement
             mutex = new Mutex();
         }
 
-       
-
         public long CreateUser(User user)
         {
             if (user.nick == "" || user.nick == null || user.password == "" || user.password == null)
@@ -34,8 +31,8 @@ namespace MovieManagerImplement
                 context.Add(user);
                 context.SaveChanges();
                 var u = context.users.Where(t_u => t_u.nick == user.nick).First();
-                return u.id;
                 mutex.ReleaseMutex();
+                return u.id;
             }
             //重名
             return -1;

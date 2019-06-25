@@ -1,0 +1,12 @@
+C:\Users\Stephen\Desktop\MovieManager\dll\Test\Test\bin\Debug\Test.exe.config
+C:\Users\Stephen\Desktop\MovieManager\dll\Test\Test\bin\Debug\Test.exe
+C:\Users\Stephen\Desktop\MovieManager\dll\Test\Test\bin\Debug\Test.pdb
+C:\Users\Stephen\Desktop\MovieManager\dll\Test\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
+C:\Users\Stephen\Desktop\MovieManager\dll\Test\Test\obj\Debug\Test.exe
+C:\Users\Stephen\Desktop\MovieManager\dll\Test\Test\obj\Debug\Test.pdb
+C:\Users\Stephen\Desktop\MovieManager\dll\Test\Test\obj\Debug\Test.csprojAssemblyReference.cache
+C:\Users\Stephen\Desktop\MovieManager\dll\Test\Test\bin\Debug\NewPageDLL.dll
+C:\Users\Stephen\Desktop\MovieManager\dll\Test\Test\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Stephen\Desktop\MovieManager\dll\Test\Test\bin\Debug\NewPageDLL.pdb
+C:\Users\Stephen\Desktop\MovieManager\dll\Test\Test\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Stephen\Desktop\MovieManager\dll\Test\Test\obj\Debug\Test.csproj.CopyComplete

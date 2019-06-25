@@ -1,0 +1,11 @@
+C:\Users\Stephen\Desktop\MovieManager\dll\MovieManagerContext\NewPageDLL\NewPageDLL\bin\Debug\NewPageDLL.dll
+C:\Users\Stephen\Desktop\MovieManager\dll\MovieManagerContext\NewPageDLL\NewPageDLL\bin\Debug\NewPageDLL.pdb
+C:\Users\Stephen\Desktop\MovieManager\dll\MovieManagerContext\NewPageDLL\NewPageDLL\obj\Debug\NewPageDLL.csproj.CoreCompileInputs.cache
+C:\Users\Stephen\Desktop\MovieManager\dll\MovieManagerContext\NewPageDLL\NewPageDLL\obj\Debug\NewPageDLL.dll
+C:\Users\Stephen\Desktop\MovieManager\dll\MovieManagerContext\NewPageDLL\NewPageDLL\obj\Debug\NewPageDLL.pdb
+C:\Users\Stephen\Desktop\MovieManager\dll\PageDLL\NewPageDLL\bin\Debug\NewPageDLL.dll
+C:\Users\Stephen\Desktop\MovieManager\dll\PageDLL\NewPageDLL\bin\Debug\NewPageDLL.pdb
+C:\Users\Stephen\Desktop\MovieManager\dll\PageDLL\NewPageDLL\obj\Debug\NewPageDLL.csprojAssemblyReference.cache
+C:\Users\Stephen\Desktop\MovieManager\dll\PageDLL\NewPageDLL\obj\Debug\NewPageDLL.csproj.CoreCompileInputs.cache
+C:\Users\Stephen\Desktop\MovieManager\dll\PageDLL\NewPageDLL\obj\Debug\NewPageDLL.dll
+C:\Users\Stephen\Desktop\MovieManager\dll\PageDLL\NewPageDLL\obj\Debug\NewPageDLL.pdb

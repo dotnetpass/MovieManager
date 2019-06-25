@@ -4,6 +4,7 @@ using MovieInterface;
 using MovieManagerContext;
 using MovieEntity;
 using System.Runtime.InteropServices;
+using System;
 
 namespace MovieManagerImplement
 {
@@ -90,7 +91,7 @@ namespace MovieManagerImplement
                                avatar_url = _users.avatar_url
                            };
             IQueryable<object> data = null;
-            int count = comments.Count();
+            int count = new_data.Count();
             if (page == 1)
             {
                 data = new_data.Take(size);
@@ -116,6 +117,7 @@ namespace MovieManagerImplement
             result.Add("totalPage", total_page);
             result.Add("count", count);
             result.Add("pageSize", size);
+            result.Add("meanScore", Math.Round(GetMeanScoreByMovieId(id), 1));
             result.Add("data", data);
             return result;
         }
@@ -135,21 +137,21 @@ namespace MovieManagerImplement
             return false;
         }
 
-        //public double GetMeanScoreByMovieId(int id)
-        //{
-        //    int[] scores = context.comments.Where(c => c.movie_id == id).Select(c => c.score).ToArray();
-        //    double[] temp_scores = new double[scores.Length];
-        //    for (int i = 0; i < scores.Length; i++)
-        //    {
-        //        temp_scores[i] = scores[i];
-        //    }
-        //    return RefCppDll.CalculateMeanScore(ref temp_scores[0], temp_scores.Length);
-        //}
+        public double GetMeanScoreByMovieId(int id)
+        {
+            int[] scores = context.comments.Where(c => c.movie_id == id).Select(c => c.score).ToArray();
+            double[] temp_scores = new double[scores.Length];
+            for (int i = 0; i < scores.Length; i++)
+            {
+                temp_scores[i] = scores[i];
+            }
+            return RefCppDll.CalculateMeanScore(ref temp_scores[0], temp_scores.Length);
+        }
     }
 
-    //public class RefCppDll
-    //{
-    //    [DllImport("MovieScoreDLL.dll", EntryPoint = "CalculateMeanScore", CallingConvention = CallingConvention.Cdecl)]
-    //    public extern static double CalculateMeanScore(ref double arr, int len);
-    //}
+    public class RefCppDll
+    {
+        [DllImport("MovieScoreDLL.dll", EntryPoint = "CalculateMeanScore", CallingConvention = CallingConvention.Cdecl)]
+        public extern static double CalculateMeanScore(ref double arr, int len);
+    }
 }

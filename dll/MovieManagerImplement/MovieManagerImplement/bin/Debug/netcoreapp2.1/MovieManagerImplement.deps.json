@@ -12,7 +12,8 @@
           "Newtonsoft.Json": "12.0.2",
           "MovieEntity": "1.0.0.0",
           "MovieInterface": "1.0.0.0",
-          "MovieManagerContext": "1.0.0.0"
+          "MovieManagerContext": "1.0.0.0",
+          "PageDLL": "1.0.0.0"
         },
         "runtime": {
           "MovieManagerImplement.dll": {}
@@ -391,6 +392,14 @@
             "fileVersion": "1.0.0.0"
           }
         }
+      },
+      "PageDLL/1.0.0.0": {
+        "runtime": {
+          "PageDLL.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
       }
     }
   },
@@ -712,6 +721,11 @@
       "sha512": ""
     },
     "MovieManagerContext/1.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "PageDLL/1.0.0.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""
